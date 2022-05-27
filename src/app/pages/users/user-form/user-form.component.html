@@ -1,0 +1,63 @@
+<div class="card w-100 my-5">
+    <div class="card-body">
+        <h1 class="card-title text-center">Formulário de Usuários</h1>
+        <!-- criamos o formulario referenciando os metodos do componente ts deste html e nos inputs colocamos a propriedade formControlName que é o ID do input-->
+        <form [formGroup]="userForm">
+            <div class="row my-4">
+                <div class="form-floating w-50 p-1 mb-1">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="nome" 
+                        placeholder="digite seu nome"
+                        formControlName="nome">
+                    <label class="mx-2" for="nome">Nome:</label>
+                </div>
+                <div class="form-floating w-50 p-1 mb-1">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="sobrenome" 
+                        placeholder="digite seu sobrenome"
+                        formControlName="sobrenome">
+                    <label class="mx-2" for="sobrenome">Sobrenome:</label>
+                </div>
+                <div class="form-floating w-50 p-1 mb-1">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="idade" 
+                        placeholder="digite sua idade"
+                        formControlName="idade">
+                    <label class="mx-2" for="idade">Idade:</label>
+                </div>
+                <div class="form-floating p-1 mb-1">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="profissao" 
+                        placeholder="digite sua profissão"
+                        formControlName="profissao">
+                    <label class="mx-2" for="profissao">Profissão:</label>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="form-group col-12 mt-1">
+                    <button
+                    type="button"
+                    class="btn btn-outline-danger float-start"
+                    routerLink="/">
+                        Cancelar
+                    </button>
+                    <!-- como esse form vai ser utilizado para criar e editar entao o botao enviar nao pode mais chamar uma simples acao, vai ter que variar de acordo com quem chama (cadastro ou editar) entao ele vai ser relacionado a uma funcao generica -->
+                    <button
+                    type="button"
+                    class="btn btn-outline-success float-end"
+                    (click)="actionButton()">
+                        Enviar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
