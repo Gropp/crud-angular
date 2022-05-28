@@ -10,13 +10,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
+import { DataBindingComponent } from './pages/data-binding/data-binding.component';
+import { ButtonComponent } from './components/button/button.component';
+import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     UsersListComponent,
-    UserFormComponent
+    UserFormComponent,
+    DataBindingComponent,
+    ButtonComponent,
+    LifeCycleComponent
   ],
   imports: [
     BrowserModule,

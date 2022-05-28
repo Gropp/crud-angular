@@ -1,0 +1,5 @@
+<!-- usando uma property binding, fazemos uma concatenacao entre a class bootstrap e a variavel criada no TS -->
+<!-- evento click que vai chamar um @output no ts  -->
+<button type="button" [class]="'m-2'+' '+'btn'+' '+btnType" (click)="clicou()">
+    {{btnText}}
+</button>

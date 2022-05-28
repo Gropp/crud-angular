@@ -1,0 +1,49 @@
+<h2>Data-binding</h2>
+<h3 class="{{className}}">Interpolação</h3>
+<p [class.text-Red] = "textRed">Essa mensagem veio do Componente - {{text}}</p>
+<p>Posso somar - {{1 + 1}}</p>
+<p>Posso chamar uma funcao - {{retornaNome()}}</p>
+<p>Posso chamar uma imagem por Interpolação <img src="{{imgUrl}}" title="imagem aleatoria"> </p>
+<h3>Property binding</h3>
+<p>Posso chamar uma imagem por property binding <img [src]="imgUrl" [alt]="imgDesc" (click)="clicou()" title="imagem aleatoria"></p>
+<h3>atribuindo um numero a propriedade</h3>
+<h4>O estilo width pode ser px, %, cm, ... o que for valido para essa propriedade</h4>
+<img [src]="imgUrl" [alt]="imgDesc" [style.width.px]="imgWidth" title="imagem aleatoria">
+<p>mudando a cor do texto com um evento e com uma classe (class binding) quando variavel for true</p>
+<h3 [class.text-Red]="textRed">Event  binding</h3>
+<button 
+    type="button" 
+    (click)="clicou()" 
+    [attr.aria-label]="buttonText" 
+    [style.backgroundColor]="bgColor"
+    [style.color]="fnColor">
+        {{buttonText}}
+</button>
+<br/>
+<!-- keyup/keydown/keyup.enter/mouseleave - ver os metodos html que rode no DOM ... -->
+<p class="text-default">Digite alguma coisa:</p>
+<input #input title="teclaup" (keyup)="clicou2(input.value)">
+<br/>
+<!-- mostrando o valor da variavel por interpolacao -->
+<p [style.fontSize]="fnSize">aplicando uma classe buscando o nome da classe no componente</p>
+<p class="form-control" [class]="className">Você digitou: {{input.value}}</p>
+<hr/>
+<h3>Two-way Data binding - ngModel</h3>
+<p>Digite alguma coisa:</p>
+<input type="text" title="twowaydb" class="form-control" [(ngModel)]="textInput">
+<p class="text-default">Você esta digitando:</p><p class="form-control">_$ {{textInput}}</p>
+<hr/>
+<!-- chamado do componente botao -->
+<!-- como esse componente tem o decorator @input é possivel acessar e mudar a propriedade dentro da tag de chamada do componente, poderia ser uma variavel, como nao passar argumento pode ser chamado sem []-->
+<!-- METODO PAI -->
+<!-- chamar a propriedade do TS e manda executar o metodo do TS local passando a variavel global $event que nesta caso é o valor da variavel do filho passado na funcao clicou() o evento emitido -->
+<app-button btnText="Enviar" (clickChild)="clicouFilho($event)"></app-button>
+<app-button btnText="Salvar" btnType="btn-primary"></app-button>
+<app-button [btnText]="'Incrementar'" [btnType]="'btn-warning'" (click)="incrementa()"></app-button>
+<app-button [btnText]="'Destroi'" [btnType]="'btn-danger'" (click)="destroiComponente()"></app-button>
+<app-button [btnText]="'Constroi'" [btnType]="'btn-primary'" (click)="constroiComponente()"></app-button>
+<br/>
+<hr/>
+<!-- o ngIf quando falso o ngIf for verdadeiro TODA A TAG É RETIRADA DO DOM - DESTRUIDA -->
+<!-- o VALOR DEFAULT DE DESTROI É FALSO, POR ISSO QUE ELA CARREGA AO INCIAR A PAGINA -->
+<app-life-cycle [number]="number" *ngIf="!destroi" ></app-life-cycle>
