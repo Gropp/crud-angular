@@ -1,0 +1,29 @@
+<section class="wrapper">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Lista de Tarefas</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Tarefa:</mat-label>
+                <!-- criamos uma variavel neste input chamada todo, assim tudo o que for digitado neste input em tempo real vai para essa variavel, como o conteudo deste input (value)é o que queremos salvar na lista de tarefas, passamos esse valor para a funcao addTodo que é executada assim que a tecla entre for pressionada e SOLTA -->
+                <!-- um evento pode chamar mais de uma funcao, para isso se separa as chamadas com ; -->
+                <input 
+                    matInput
+                    #campoinput
+                    type="text" 
+                    placeholder="digite sua tarefa"
+                    (keyup.enter)="addTodo(campoinput.value); campoinput.value=''">
+            </mat-form-field>
+            <!-- vamos renderizar uma lista de tarefas -->
+            <mat-list role="list">
+                <!-- o ng template vai iterar a lista de tarefas a fazer -->
+                <!-- pois a variavel tarefa retorna sempre um objeto -->
+                <div *ngFor="let todo of todos">
+                    <!-- as funcoes da listagem devem ser colocadas no tag que chamam o componente e geram a listagem - a propriedade remove do evento filho chama o metodo removeTodo do elemento filho passando a variavel event que sera utilizada pelo PAI  - como o remove esta sendo chamado dentro do loop do ngFor, ao excluir a tela ja é atualizada-->
+                    <app-todo-item [tarefa]="todo" (remove)="removeTodo($event)"></app-todo-item> 
+                </div>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</section>
