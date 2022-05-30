@@ -24,6 +24,7 @@ import { LifeCycleComponent } from './components/life-cycle/life-cycle.component
 import { TodoListComponent } from './pages/todo/todo-list/todo-list.component';
 import { TodoItemComponent } from './pages/todo/todo-item/todo-item.component';
 import { PipesExampleComponent } from './pages/pipes-example/pipes-example.component';
+import { PrintListPipe } from './pipes/print-list.pipe';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PipesExampleComponent } from './pages/pipes-example/pipes-example.compo
     LifeCycleComponent,
     TodoListComponent,
     TodoItemComponent,
-    PipesExampleComponent
+    PipesExampleComponent,
+    PrintListPipe
   ],
   imports: [
     BrowserModule,

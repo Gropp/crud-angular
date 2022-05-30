@@ -11,7 +11,7 @@
 </div>
 <br/>
 <div class="form-group">
-    <label for="text">Text:</label>
+    <label for="texto">Text:</label>
     <!-- o input esta ligado por two-way DB a variavel number -->
     <input 
         type="text" 
@@ -86,4 +86,27 @@
     <br>
     <p>{{pessoa}}</p>
     <p>{{pessoa | json}}</p>
+    <hr/>
+    <h3>PIPE PERSONALIZADO</h3>
+    <br>
+    <div class="container">
+        <div class="col">
+            <div class="row-6">
+                <div class="form-group">
+                    <label class="m-2" for="tex">Print Pipe Test: </label>
+                    <input type="text" name="tex" id="tex" title="tex" #tex>
+                    <button 
+                        type="button" 
+                        class="btn btn-info m-2"
+                        (click)="add(tex.value); tex.value=''">
+                            Add
+                    </button>
+                </div>
+                <h3>Lista Formatada pelo PIPE</h3>
+                <!-- pipe impuro para sempre criar uma nova instancia -->
+                <p>Tamanho da lista {{nomes.length}}</p>
+                <p>{{nomes | printList}}</p>
+            </div>
+        </div>
+    </div>
 </div>

@@ -15,7 +15,7 @@ export class PipesExampleComponent implements OnInit {
     idade: '49',
     profissao: 'Cientista da Computação'
   }
-
+  nomes = ['Fernando', 'Ana', 'Maria'];
   constructor() { }
 
   ngOnInit(): void {
@@ -29,5 +29,8 @@ export class PipesExampleComponent implements OnInit {
     this.text = 'o rato roeu a roupa do rei de roma.';
   }
 
+  add(text:string){
+    this.nomes.push(text);
+  }
 
 }
