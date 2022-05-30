@@ -1,5 +1,5 @@
 // imports da biblioteca do angular...
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -10,6 +10,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 //imports de modulos locais...
 import { AppRoutingModule } from './app-routing.module';
@@ -50,7 +51,8 @@ import { PipesExampleComponent } from './pages/pipes-example/pipes-example.compo
     MatGridListModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
