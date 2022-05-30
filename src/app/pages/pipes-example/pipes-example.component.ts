@@ -16,6 +16,13 @@ export class PipesExampleComponent implements OnInit {
     profissao: 'Cientista da Computação'
   }
   nomes = ['Fernando', 'Ana', 'Maria'];
+
+  //criacao de um array
+  valor = [10,20,30,40,50,60,70,80,90,100];
+  //teste da propriedade shift
+  teste = Number(this.valor.shift());
+   
+
   constructor() { }
 
   ngOnInit(): void {
